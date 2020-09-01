@@ -1,0 +1,57 @@
+{
+  "name": "nextjs-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "npx eslint --ext .js src/",
+    "pm2": "npx pm2 start npm --name 'next' -- start"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
+    "axios": "^0.19.2",
+    "axios-hooks": "^2.1.0",
+    "dotenv": "^8.2.0",
+    "formik": "^2.1.5",
+    "formik-material-ui": "^2.0.1",
+    "i18next": "^19.7.0",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "next": "9.3.5",
+    "prop-types": "^15.7.2",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-google-recaptcha": "^2.1.0",
+    "react-i18next": "^11.7.2",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "styled-components": "^5.1.1",
+    "sweetalert2": "^9.17.1",
+    "typeface-montserrat": "0.0.75",
+    "yup": "^0.29.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard-react": "^9.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "pm2": "^4.4.0",
+    "prettier": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
+}
