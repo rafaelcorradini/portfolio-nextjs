@@ -27,6 +27,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-i18next": "^11.7.2",
     "react-input-mask": "^3.0.0-alpha.2",
+    "react-scroll-parallax": "^2.3.4",
     "styled-components": "^5.1.1",
     "sweetalert2": "^9.17.1",
     "typeface-montserrat": "0.0.75",

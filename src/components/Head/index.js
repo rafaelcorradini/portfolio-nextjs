@@ -1,10 +1,11 @@
 import React from 'react'
-import theme from 'common/styles/theme'
 import NextHead from 'next/head'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '@material-ui/core/styles'
 
 const Head = () => {
   const { t } = useTranslation()
+  const theme = useTheme()
   return (
     <NextHead>
       <link
@@ -88,6 +89,7 @@ const Head = () => {
         name="msapplication-square150x150logo"
         content="/mstile-150x150.png"
       />
+      <title>Rafael Corradini da Cunha</title>
       <meta
         name="msapplication-wide310x150logo"
         content="/mstile-310x150.png"
