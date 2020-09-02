@@ -12,10 +12,12 @@ const GraphsEffect = () => {
       const index = Math.round(Math.random() * range)
       randomList.push(
         <GraphImage
+          key={i}
           src={`/graph${index}.svg`}
           style={{
             width: 300 + Math.random() * 100,
             padding: 20 + Math.random() * 100,
+            transform: `rotate(${Math.random() * 90}deg)`,
             opacity: 0.5 * Math.random()
           }}
         />

@@ -3,7 +3,7 @@ import Header from 'components/Header'
 import Head from 'components/Head'
 import Works from 'components/Works'
 
-export default function Home({ works }) {
+export default function Home() {
   return (
     <Fragment>
       <Head />

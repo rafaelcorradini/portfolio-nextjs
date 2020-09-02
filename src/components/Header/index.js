@@ -48,7 +48,7 @@ const Header = () => {
                   className="mt-4"
                   endIcon={<KeyboardArrowRight />}
                 >
-                  Conheça meu trabalho
+                  {t('header.button')}
                 </Button>
               </Grid>
             </Parallax>
