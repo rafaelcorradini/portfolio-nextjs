@@ -17,5 +17,32 @@
   "error": {
     "title": "Ocorreu algum erro ao recuperar dados do servidor ;(",
     "retry": "Tentar novamente"
+  },
+  "contact": {
+    "title": "Entre em contato",
+    "subtitle": "Preencha o formulário para me mandar uma mensagem.",
+    "successTitle": "Mensagem enviada com sucesso!",
+    "successText": "Retornarei o mais breve possível.",
+    "errorTitle": "Ocorreu um erro no servidor ;(",
+    "errorText": "Por favor, tente novamente mais tarde.",
+    "send": "Enviar",
+    "validation": {
+      "name": {
+        "required": "Insira seu nome completo"
+      },
+      "email": {
+        "required": "Insira seu e-mail",
+        "invalid": "E-mail inválido"
+      },
+      "phone": {
+        "invalid": "'Telefone inválido"
+      }
+    },
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefone/Celular (Opcional)",
+      "message": "Mensagem"
+    }
   }
 }

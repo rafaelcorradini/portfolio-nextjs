@@ -1,5 +1,7 @@
 This is a portfolio of my work. Deployed on: https://rafaelcdacunha.com.br/
 
+Developed using react, nextjs, vercel serverless functions and mongodb(atlas).
+
 ## Build Setup
 
 ``` bash

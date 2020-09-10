@@ -55,7 +55,7 @@ const Works = () => {
         <Card>
           <CardMedia
             style={{ height: '200px', margin: '20px', borderRadius: '2px' }}
-            image={`${process.env.API_URL}${work.image.formats.small.url}`}
+            image={`/works/${work.image}`}
             alt={`${work.name} screenshot`}
           />
           <CardContent>

@@ -16,13 +16,18 @@ const phoneRegex = /\([1-9]\d\)\s9?\d{4}-\d{4}/
 
 export default function Contact() {
   const [captcha, setCaptcha] = useState(null)
-  const ContactValidation = Yup.object().shape({
-    name: Yup.string().required('Insira seu nome completo'),
-    email: Yup.string().email('E-mail inválido').required('Insira seu e-mail'),
-    phone: Yup.string().matches(phoneRegex, 'Telefone inválido')
-  })
   const theme = useTheme()
   const { t } = useTranslation()
+  const ContactValidation = Yup.object().shape({
+    name: Yup.string().required(t('contact.validation.name.required')),
+    email: Yup.string()
+      .email(t('contact.validation.email.invalid'))
+      .required(t('contact.validation.email.required')),
+    phone: Yup.string().matches(
+      phoneRegex,
+      t('contact.validation.phone.invalid')
+    )
+  })
 
   return (
     <div className="mt-4">
@@ -49,16 +54,16 @@ export default function Contact() {
               })
               Swal.fire({
                 icon: 'success',
-                title: 'Mensagem enviada com sucesso!',
-                text: 'Retornaremos o mais breve possível.',
-                confirmButtonColor: theme.palette.secondary.main
+                title: t('contact.successTitle'),
+                text: t('contact.successText'),
+                confirmButtonColor: theme.palette.primary.main
               })
               resetForm()
             } catch (errors) {
               Swal.fire({
                 icon: 'error',
-                title: 'Ocorreu um erro em nossos servidores ;(',
-                text: 'Por favor, tente novamente mais tarde.'
+                title: t('contact.errorTitle'),
+                text: t('contact.errorText')
               })
             } finally {
               setSubmitting(false)
@@ -72,7 +77,7 @@ export default function Contact() {
                   <Field
                     type="name"
                     name="name"
-                    label="Nome"
+                    label={t('contact.form.name')}
                     variant="outlined"
                     component={TextField}
                     fullWidth
@@ -82,7 +87,7 @@ export default function Contact() {
                   <Field
                     type="email"
                     name="email"
-                    label="E-mail"
+                    label={t('contact.form.email')}
                     variant="outlined"
                     component={TextField}
                     fullWidth
@@ -96,7 +101,7 @@ export default function Contact() {
                     type="tel"
                     variant="outlined"
                     name="phone"
-                    label="Telefone (Opcional)"
+                    label={t('contact.form.phone')}
                     component={TextField}
                     fullWidth
                   />
@@ -106,7 +111,7 @@ export default function Contact() {
                   <Field
                     type="message"
                     name="message"
-                    label="Mensagem"
+                    label={t('contact.form.message')}
                     variant="outlined"
                     component={TextField}
                     fullWidth
@@ -118,7 +123,7 @@ export default function Contact() {
 
               <Grid container justify="center" className="mt-4">
                 <ReCAPTCHA
-                  sitekey="6LcFOMMZAAAAAF8t2tmPc43_EiHvahxUhxOQb1JQ"
+                  sitekey={process.env.RECAPTCHA_KEY}
                   onChange={(value) => setCaptcha(value)}
                 />
               </Grid>
@@ -130,11 +135,11 @@ export default function Contact() {
                     variant="contained"
                     size="large"
                     color="primary"
-                    style={{ width: '100%' }}
+                    fullWidth
                     text-align="center"
                     disabled={isSubmitting || !captcha}
                   >
-                    Enviar
+                    {t('contact.send')}
                   </Button>
                 </Grid>
               </Grid>
