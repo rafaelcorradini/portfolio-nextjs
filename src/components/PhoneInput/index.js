@@ -1,29 +1,15 @@
 import React from 'react'
-import ReactInputMask from 'react-input-mask'
-
-const beforeMaskedStateChange = ({ nextState }) => {
-  let { value } = nextState
-
-  if (value === '(__) ____-____') {
-    value = ''
-  }
-
-  return {
-    ...nextState,
-    value
-  }
-}
+import { InputMask } from 'react-masked'
 
 const PhoneInput = (props) => {
-  const { inputRef, onChange, ...other } = props
+  const { onChange, ...other } = props
 
   return (
-    <ReactInputMask
+    <InputMask
       {...other}
       onChange={onChange}
       value={props.value}
-      beforeMaskedStateChange={beforeMaskedStateChange}
-      mask="(99) 9999-9999"
+      mask="(99) 99999-9999"
     />
   )
 }

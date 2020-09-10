@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -16,25 +16,28 @@ import ErrorFetch from 'components/ErrorFetch/index'
 import Loading from 'components/Loading/index'
 
 const Works = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const [works, setWorks] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
 
-  const fetchWorks = async () => {
+  const fetchWorks = useCallback(async () => {
     try {
       const { data } = await Public.listWorks()
-      setWorks(data)
+      const currentLanguage = i18n.language || window.localStorage.i18nextLng
+      setWorks(
+        data.filter((item) => item.language === currentLanguage.substring(0, 2))
+      )
     } catch {
       setError(true)
     } finally {
       setLoading(false)
     }
-  }
+  }, [i18n.language])
 
   useEffect(() => {
     fetchWorks()
-  }, [])
+  }, [fetchWorks])
 
   let worksList
 
@@ -78,7 +81,11 @@ const Works = () => {
                 >
                   {tagGroup.content.map((tag) => (
                     <Grid key={tag} item>
-                      <Chip label={tag} variant="outlined" color="secondary" />
+                      <Chip
+                        label={tag}
+                        variant="outlined"
+                        color="textSecondary"
+                      />
                     </Grid>
                   ))}
                 </Grid>
@@ -122,8 +129,6 @@ const Works = () => {
           {t('works.subtitle')}
         </Typography>
         <Grid container justify="space-between" className="my-4" spacing={3}>
-          {worksList}
-          {worksList}
           {worksList}
         </Grid>
       </Container>

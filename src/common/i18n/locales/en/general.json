@@ -3,7 +3,23 @@
     "name": "Portfólio - Rafael Corradini da Cunha"
   },
   "header": {
-    "title": "Hi, I'm Rafael Corradini da Cunha",
-    "subtitle": "Desenvolvedor Web"
+    "title": "Olá, sou",
+    "name": "Rafael Corradini da Cunha.",
+    "subtitle": "Venho criando soluções para web desde 2012. Sou desenvolvedor Web e graduando da USP (Universidade de São Paulo) em Ciências de Computação. Continue pelo site e conheça um pouco do meu trabalho.",
+    "button": "Conheça meu trabalho"
+  },
+  "works": {
+    "title": "Meu portfólio",
+    "subtitle": "Dê uma olhada em alguns de meus trabalhos",
+    "visit": "Visitar",
+    "repo": "Ver código"
+  },
+  "error": {
+    "title": "Ocorreu algum erro ao recuperar dados do servidor ;(",
+    "retry": "Tentar novamente"
+  },
+  "contact": {
+    "title": "Entre em contato",
+    "subtitle": "Preencha o formulário para me mandar uma mensagem."
   }
 }
