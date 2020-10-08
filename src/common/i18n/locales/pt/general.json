@@ -5,7 +5,7 @@
   "header": {
     "title": "Olá, sou",
     "name": "Rafael Corradini da Cunha.",
-    "subtitle": "Venho criando soluções para web desde 2012. Sou desenvolvedor Web e graduando da USP (Universidade de São Paulo) em Ciências de Computação. Continue pelo site e conheça um pouco do meu trabalho.",
+    "subtitle": "Sou Desenvolvedor Web e venho criando soluções para web desde 2012. Continue pelo site e conheça um pouco do meu trabalho.",
     "button": "Conheça meu trabalho"
   },
   "works": {
@@ -20,7 +20,7 @@
   },
   "contact": {
     "title": "Entre em contato",
-    "subtitle": "Preencha o formulário para me mandar uma mensagem.",
+    "subtitle": "Preencha o formulário para me mandar uma mensagem",
     "successTitle": "Mensagem enviada com sucesso!",
     "successText": "Retornarei o mais breve possível.",
     "errorTitle": "Ocorreu um erro no servidor ;(",
@@ -28,7 +28,7 @@
     "send": "Enviar",
     "validation": {
       "name": {
-        "required": "Insira seu nome completo"
+        "required": "Insira seu nome"
       },
       "email": {
         "required": "Insira seu e-mail",

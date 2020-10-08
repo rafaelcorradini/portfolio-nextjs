@@ -67,6 +67,7 @@ export default function Contact() {
               })
             } finally {
               setSubmitting(false)
+              setCaptcha(null)
             }
           }}
         >

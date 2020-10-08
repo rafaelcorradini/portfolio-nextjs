@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer'
+import sendgrid from '@sendgrid/mail'
 import fetch from 'node-fetch'
 
 async function verifyRecaptcha(humanKey) {
@@ -26,27 +26,22 @@ async function verifyRecaptcha(humanKey) {
 
 export default async (req, res) => {
   await verifyRecaptcha(req.body.captcha)
+  sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
+  try {
+    await sendgrid.send({
+      from: 'rafacunhadini@gmail.com',
+      to: 'rafacunhadini@gmail.com',
+      subject: 'Contato',
+      html: `
+        <p>name: ${req.body.name}</p>
+        <p>email: ${req.body.email}</p>
+        <p>telefone: ${req.body.phone}</p>
+        <p>${req.body.message}</p>
+      `
+    })
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP,
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.SMTP_EMAIL,
-      pass: process.env.SMTP_PASSWORD
-    }
-  })
-
-  await transporter.sendMail({
-    from: `"${req.body.name}" contact@rafaelcdacunha.com.br`,
-    to: 'rafacunhadini@gmail.com',
-    subject: 'Contato',
-    html: `
-      <p>email: ${req.body.email}</p>
-      <p>telefone: ${req.body.phone}</p>
-      <p>${req.body.message}</p>
-    `
-  })
-
-  res.status(200).json({ ok: true })
+    res.status(200).json({ ok: true })
+  } catch (err) {
+    res.status(500).json({ error: err.response.body.errors })
+  }
 }

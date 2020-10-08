@@ -3,46 +3,46 @@
     "name": "Portfólio - Rafael Corradini da Cunha"
   },
   "header": {
-    "title": "Olá, sou",
+    "title": "Hi, I'm",
     "name": "Rafael Corradini da Cunha.",
-    "subtitle": "Venho criando soluções para web desde 2012. Sou desenvolvedor Web e graduando da USP (Universidade de São Paulo) em Ciências de Computação. Continue pelo site e conheça um pouco do meu trabalho.",
-    "button": "Conheça meu trabalho"
+    "subtitle": "I'm a full stack web developer and I've been creating web solutions since 2012. Scroll down and get to know about my work.",
+    "button": "My work"
   },
   "works": {
-    "title": "Meu portfólio",
-    "subtitle": "Dê uma olhada em alguns de meus trabalhos",
-    "visit": "Visitar",
-    "repo": "Ver código"
+    "title": "My works",
+    "subtitle": "Check out some of my works",
+    "visit": "Visit",
+    "repo": "Source"
   },
   "error": {
-    "title": "Ocorreu algum erro ao recuperar dados do servidor ;(",
-    "retry": "Tentar novamente"
+    "title": "Something went wrong ;(",
+    "retry": "Retry"
   },
   "contact": {
-    "title": "Entre em contato",
-    "subtitle": "Preencha o formulário para me mandar uma mensagem.",
-    "successTitle": "Mensagem enviada com sucesso!",
-    "successText": "Retornarei o mais breve possível.",
-    "errorTitle": "Ocorreu um erro no servidor ;(",
-    "errorText": "Por favor, tente novamente mais tarde.",
-    "send": "Enviar",
+    "title": "Let's build something together",
+    "subtitle": "Introduce yourself and your project and I'll get in touch",
+    "successTitle": "Message was successfully sent!",
+    "successText": "I will contact you soon.",
+    "errorTitle": "Something went wrong ;(",
+    "errorText": "Please, try again later.",
+    "send": "Send",
     "validation": {
       "name": {
-        "required": "Insira seu nome completo"
+        "required": "Name is required"
       },
       "email": {
-        "required": "Insira seu e-mail",
-        "invalid": "E-mail inválido"
+        "required": "Email is required",
+        "invalid": "Invalid Email"
       },
       "phone": {
-        "invalid": "'Telefone inválido"
+        "invalid": "'invalid Phone"
       }
     },
     "form": {
       "name": "Nome",
       "email": "Email",
-      "phone": "Telefone/Celular (Opcional)",
-      "message": "Mensagem"
+      "phone": "Phone (Optional)",
+      "message": "Message"
     }
   }
 }

@@ -8,14 +8,13 @@ import Card from '@material-ui/core/Card'
 import Chip from '@material-ui/core/Chip'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import { StyledSection } from './style'
 import Public from 'common/resources/public'
 import ErrorFetch from 'components/ErrorFetch/index'
 import Loading from 'components/Loading/index'
 
-const Works = () => {
+const Works = ({ worksRef }) => {
   const { t, i18n } = useTranslation()
   const [works, setWorks] = useState([])
   const [error, setError] = useState(false)
@@ -53,11 +52,6 @@ const Works = () => {
     worksList = works.map((work) => (
       <Grid item key={work._id} xs={12} sm={6} md={4}>
         <Card>
-          <CardMedia
-            style={{ height: '200px', margin: '20px', borderRadius: '2px' }}
-            image={`/works/${work.image}`}
-            alt={`${work.name} screenshot`}
-          />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {work.name}
@@ -68,18 +62,15 @@ const Works = () => {
             <Typography color="textSecondary" className="mt-2 mb-1">
               Tecnologias utilizadas:
             </Typography>
-            {work.tags.map((tagGroup) => (
-              <div key={tagGroup.name} className="mt-2">
-                <Typography color="textSecondary" variant="caption">
-                  {tagGroup.name}:
-                </Typography>
+            {typeof work.tags[0] === 'string' ? (
+              <div className="mt-2">
                 <Grid
                   container
                   alignItems="center"
                   spacing={1}
                   className="mt-1"
                 >
-                  {tagGroup.content.map((tag) => (
+                  {work.tags.map((tag) => (
                     <Grid key={tag} item>
                       <Chip
                         label={tag}
@@ -90,7 +81,31 @@ const Works = () => {
                   ))}
                 </Grid>
               </div>
-            ))}
+            ) : (
+              work.tags.map((tagGroup) => (
+                <div key={tagGroup} className="mt-2">
+                  <Typography color="textSecondary" variant="caption">
+                    {tagGroup.name}:
+                  </Typography>
+                  <Grid
+                    container
+                    alignItems="center"
+                    spacing={1}
+                    className="mt-1"
+                  >
+                    {tagGroup.content.map((tag) => (
+                      <Grid key={tag} item>
+                        <Chip
+                          label={tag}
+                          variant="outlined"
+                          color="textSecondary"
+                        />
+                      </Grid>
+                    ))}
+                  </Grid>
+                </div>
+              ))
+            )}
           </CardContent>
           <CardActions>
             {work.url && (
@@ -103,14 +118,14 @@ const Works = () => {
                 {t('works.visit')}
               </Button>
             )}
-            {work.repo && (
+            {work.source && (
               <Button
                 size="small"
                 color="primary"
                 target="_blank"
-                href={work.repo}
+                href={work.source}
               >
-                {t('works.repo')}
+                {t('works.source')}
               </Button>
             )}
           </CardActions>
@@ -120,7 +135,7 @@ const Works = () => {
   }
 
   return (
-    <StyledSection className="py-4">
+    <StyledSection className="py-4" ref={worksRef}>
       <Container>
         <Typography variant="h4" align="center" color="primary">
           {t('works.title')}
